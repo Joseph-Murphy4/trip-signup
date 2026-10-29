@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Sign-ups{% endblock %}
+{% block content %}
+<h1 class="h3 mb-4">Sign-ups <span class="badge bg-secondary">{{ signups|length }}</span></h1>
+{% if signups %}
+<div class="table-responsive">
+  <table class="table table-striped table-hover bg-white align-middle">
+    <thead>
+      <tr><th>Name</th><th>Email</th><th>Major</th><th>Signed up</th></tr>
+    </thead>
+    <tbody>
+      {% for name, email, major, created_at in signups %}
+      <tr><td>{{ name }}</td><td class="text-break">{{ email }}</td><td>{{ major }}</td><td class="text-nowrap">{{ created_at }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<p class="text-muted">No sign-ups yet.</p>
+{% endif %}
+{% endblock %}

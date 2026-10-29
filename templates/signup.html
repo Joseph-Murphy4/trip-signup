@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Study Abroad Trip Sign-up{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <h1 class="h3 mb-4">Study Abroad Trip Sign-up</h1>
+        {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+        <form method="post">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input id="name" name="name" class="form-control" value="{{ form.name or '' }}" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" name="email" type="email" class="form-control" value="{{ form.email or '' }}" required>
+          </div>
+          <div class="mb-4">
+            <label for="major" class="form-label">Major</label>
+            <input id="major" name="major" class="form-control" value="{{ form.major or '' }}" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Register interest</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
